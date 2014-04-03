@@ -1,16 +1,19 @@
 package uk.co.developer.views.demo.resources;
 
 
+import uk.co.developer.views.demo.model.BaseModel;
+import uk.co.developer.views.demo.views.PublicfreemarkerView;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
 
 @Path("/")
 public class HomeResource {
 
     @GET
-    public Response index() {
+    public PublicfreemarkerView index() {
 
-        return Response.ok().build();
+        BaseModel model = new BaseModel();
+        return new PublicfreemarkerView("common/home.ftl", model);
     }
 }
